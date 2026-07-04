@@ -35,14 +35,13 @@
   }
   h1,h2,h3,.display{ font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:0.02em; }
   .mono{ font-family:'JetBrains Mono',monospace; }
-  .wrap{ max-width:1240px; margin:0 auto; padding:28px 20px 80px; }
+  .wrap{ max-width:1320px; margin:0 auto; padding:28px 20px 80px; }
 
-  /* ---- Header / scoreboard ---- */
   header.hero{
     display:flex; justify-content:space-between; align-items:flex-end;
     flex-wrap:wrap; gap:20px;
     border-bottom:1px solid var(--border);
-    padding-bottom:22px; margin-bottom:26px;
+    padding-bottom:22px; margin-bottom:20px;
   }
   .hero-title{ display:flex; align-items:baseline; gap:14px; }
   .hero-title .bar{ width:6px; height:34px; background:linear-gradient(var(--blue),var(--orange)); border-radius:3px; }
@@ -55,11 +54,10 @@
   .score-item.win .num{ color:var(--green); }
   .score-item.loss .num{ color:var(--loss); }
 
-  /* ---- Filter bar ---- */
   .filters{
     display:flex; gap:22px; flex-wrap:wrap; align-items:center;
     background:var(--surface); border:1px solid var(--border); border-radius:12px;
-    padding:14px 18px; margin-bottom:26px;
+    padding:14px 18px; margin-bottom:18px;
   }
   .filters .group{ display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
   .filters label.field-lbl{ font-size:11px; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.06em; margin-right:2px;}
@@ -83,17 +81,31 @@
   }
   .reset-btn:hover{ color:var(--text); border-color:var(--text-muted); }
 
-  /* ---- Cards / grid ---- */
+  /* ---- Tabs ---- */
+  .tabbar{ display:flex; gap:6px; margin-bottom:20px; flex-wrap:wrap; border-bottom:1px solid var(--border); padding-bottom:0;}
+  .tabbtn{
+    background:none; border:none; color:var(--text-muted); font-family:'Rajdhani',sans-serif;
+    font-weight:600; font-size:15px; text-transform:uppercase; letter-spacing:0.03em;
+    padding:10px 16px; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px;
+  }
+  .tabbtn.active{ color:var(--text); border-bottom-color:var(--orange); }
+  .tabpanel{ display:none; }
+  .tabpanel.active{ display:block; }
+
   .grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:20px; margin-bottom:20px; }
+  .grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:20px; }
   .card{
     background:var(--surface); border:1px solid var(--border); border-radius:14px;
     padding:20px;
   }
-  .card h2{ font-size:16px; text-transform:uppercase; margin:0 0 16px; color:var(--text); }
+  .card h2{ font-size:16px; text-transform:uppercase; margin:0 0 16px; color:var(--text); display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;}
   .card h2 small{ display:block; font-family:'Inter',sans-serif; text-transform:none; font-weight:400; color:var(--text-muted); font-size:12px; margin-top:2px;}
+  select.metric-select{
+    background:var(--surface-2); border:1px solid var(--border); color:var(--text);
+    padding:5px 10px; border-radius:8px; font-size:12px; font-family:'Inter',sans-serif;
+  }
   canvas{ max-width:100%; }
 
-  /* ---- Boost meters (signature element) ---- */
   .meter-row{ display:flex; align-items:center; gap:12px; margin-bottom:14px; }
   .meter-row:last-child{ margin-bottom:0; }
   .meter-name{ width:92px; font-size:13px; font-weight:600; flex-shrink:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
@@ -110,24 +122,55 @@
   }
   .meter-val{ width:48px; text-align:right; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--text-muted); }
 
-  /* ---- Table ---- */
   .table-wrap{ overflow-x:auto; }
   table{ width:100%; border-collapse:collapse; font-size:13px; }
   th, td{ padding:9px 12px; text-align:left; border-bottom:1px solid var(--border); white-space:nowrap; }
   th{ color:var(--text-muted); text-transform:uppercase; font-size:11px; letter-spacing:0.05em; cursor:pointer; user-select:none; }
   th:hover{ color:var(--text); }
-  tr:hover td{ background:var(--surface-2); }
+  tr:hover td{ background:var(--surface-2); cursor:pointer; }
   td.mono, th.mono{ font-family:'JetBrains Mono',monospace; }
   .pill{ padding:2px 9px; border-radius:999px; font-size:11px; font-weight:600; }
   .pill.win{ background:rgba(74,222,128,0.15); color:var(--green); }
   .pill.loss{ background:rgba(248,113,113,0.15); color:var(--loss); }
   .mvp-star{ color:var(--amber); }
 
+  .award-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
+  .award-card{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:16px;
+    position:relative; overflow:hidden;
+  }
+  .award-card .emoji{ font-size:22px; }
+  .award-card .title{ font-size:12px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em; margin:8px 0 4px; }
+  .award-card .winner{ font-family:'Rajdhani',sans-serif; font-weight:700; font-size:20px; }
+  .award-card .detail{ font-size:12px; color:var(--text-muted); margin-top:2px; }
+
   .empty{ text-align:center; color:var(--text-muted); padding:60px 20px; font-size:14px; }
   .empty b{ color:var(--text); }
+  .subtle-note{ color:var(--text-muted); font-size:12px; margin-top:10px; }
 
-  @media (max-width:860px){
-    .grid{ grid-template-columns:1fr; }
+  /* ---- Modal ---- */
+  .modal-backdrop{
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:50;
+    align-items:center; justify-content:center; padding:20px;
+  }
+  .modal-backdrop.open{ display:flex; }
+  .modal{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px;
+    max-width:720px; width:100%; max-height:85vh; overflow-y:auto; padding:24px;
+  }
+  .modal-close{
+    float:right; background:none; border:none; color:var(--text-muted); font-size:20px; cursor:pointer;
+  }
+  .modal h3{ margin:0 0 4px; font-size:22px; }
+  .modal .sub{ color:var(--text-muted); font-size:13px; margin-bottom:18px; }
+  .stat-block{ margin-bottom:18px; }
+  .stat-block h4{ font-family:'Rajdhani',sans-serif; font-size:14px; text-transform:uppercase; color:var(--orange); margin:0 0 8px; letter-spacing:0.04em;}
+  .stat-line{ display:flex; justify-content:space-between; font-size:13px; padding:4px 0; border-bottom:1px dashed var(--border); }
+  .stat-line span:first-child{ color:var(--text-muted); }
+  .stat-line span:last-child{ font-family:'JetBrains Mono',monospace; }
+
+  @media (max-width:900px){
+    .grid, .grid3{ grid-template-columns:1fr; }
     .scoreline{ gap:16px; }
   }
 </style>
@@ -157,60 +200,193 @@
     <button class="reset-btn" id="resetBtn">Resetuj filtere</button>
   </div>
 
-  <div id="content">
-    <div class="grid">
-      <div class="card">
-        <h2>Trend kroz vreme <small id="trendMetricLabel">Golovi po meču</small></h2>
-        <canvas id="trendChart" height="130"></canvas>
-      </div>
-      <div class="card">
-        <h2>Prosečan boost <small>% od maksimalnog boost-a</small></h2>
-        <div id="boostMeters"></div>
-      </div>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <h2>Profil igrača <small>normalizovano 0–100, prosek po meču</small></h2>
-        <canvas id="radarChart" height="220"></canvas>
-      </div>
-      <div class="card">
-        <h2>Pozicioniranje <small>% vremena po trećinama terena</small></h2>
-        <canvas id="posChart" height="220"></canvas>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Svi mečevi <small>klikni na kolonu za sortiranje</small></h2>
-      <div class="table-wrap">
-        <table id="matchTable">
-          <thead>
-            <tr>
-              <th data-key="date">Datum</th>
-              <th data-key="map">Mapa</th>
-              <th data-key="player">Igrač</th>
-              <th data-key="team_color">Tim</th>
-              <th data-key="win">Rezultat</th>
-              <th class="mono" data-key="goals">G</th>
-              <th class="mono" data-key="assists">A</th>
-              <th class="mono" data-key="saves">S</th>
-              <th class="mono" data-key="shots">Š</th>
-              <th class="mono" data-key="score">Score</th>
-              <th class="mono" data-key="avg_boost">Boost</th>
-              <th class="mono" data-key="percent_behind_ball">Iza lopte %</th>
-              <th data-key="mvp">MVP</th>
-            </tr>
-          </thead>
-          <tbody id="matchTableBody"></tbody>
-        </table>
-      </div>
-    </div>
+  <div class="tabbar" id="tabbar">
+    <button class="tabbtn active" data-tab="overview">Pregled</button>
+    <button class="tabbtn" data-tab="boost">Boost</button>
+    <button class="tabbtn" data-tab="movement">Kretanje</button>
+    <button class="tabbtn" data-tab="positioning">Pozicioniranje</button>
+    <button class="tabbtn" data-tab="demos">Demo</button>
+    <button class="tabbtn" data-tab="chemistry">Chemistry</button>
+    <button class="tabbtn" data-tab="records">Rekordi</button>
+    <button class="tabbtn" data-tab="matches">Svi mečevi</button>
   </div>
 
+  <div id="content">
+
+    <!-- OVERVIEW -->
+    <div class="tabpanel active" id="tab-overview">
+      <div class="grid">
+        <div class="card">
+          <h2>
+            <span>Trend kroz vreme</span>
+            <select class="metric-select" id="trendMetric"></select>
+          </h2>
+          <canvas id="trendChart" height="130"></canvas>
+        </div>
+        <div class="card">
+          <h2>Prosečan boost <small>% od maksimalnog boost-a</small></h2>
+          <div id="boostMeters"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Profil igrača <small>normalizovano 0–100, prosek po meču</small></h2>
+        <canvas id="radarChart" height="200"></canvas>
+      </div>
+    </div>
+
+    <!-- BOOST -->
+    <div class="tabpanel" id="tab-boost">
+      <div class="grid">
+        <div class="card">
+          <h2>BPM (potrošnja boosta / min) <small>manje ne znači loše — zavisi od stila</small></h2>
+          <canvas id="bpmChart" height="160"></canvas>
+        </div>
+        <div class="card">
+          <h2>Distribucija boost nivoa <small>% vremena provedeno u svakom rangu</small></h2>
+          <canvas id="boostDistChart" height="160"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Detaljna boost tabela <small>prosek po igraču kroz filtrirane mečeve</small></h2>
+        <div class="table-wrap">
+          <table id="boostTable"><thead></thead><tbody></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOVEMENT -->
+    <div class="tabpanel" id="tab-movement">
+      <div class="grid">
+        <div class="card">
+          <h2>Vreme u vazduhu / na zemlji <small>% od trajanja meča</small></h2>
+          <canvas id="airChart" height="160"></canvas>
+        </div>
+        <div class="card">
+          <h2>Brzina <small>prosečna brzina i % vremena na supersonic-u</small></h2>
+          <canvas id="speedChart" height="160"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Detaljna tabela kretanja</h2>
+        <div class="table-wrap">
+          <table id="movementTable"><thead></thead><tbody></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- POSITIONING -->
+    <div class="tabpanel" id="tab-positioning">
+      <div class="grid">
+        <div class="card">
+          <h2>Pozicioniranje po trećinama <small>% vremena po zonama terena</small></h2>
+          <canvas id="posChart" height="200"></canvas>
+        </div>
+        <div class="card">
+          <h2>Rotacije <small>% vremena iza lopte kroz vreme</small></h2>
+          <canvas id="rotationTrendChart" height="200"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Detaljna tabela pozicioniranja</h2>
+        <div class="table-wrap">
+          <table id="posTable"><thead></thead><tbody></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEMOS -->
+    <div class="tabpanel" id="tab-demos">
+      <div class="grid">
+        <div class="card">
+          <h2>Demo bilans <small>zadati vs primljeni</small></h2>
+          <canvas id="demoChart" height="180"></canvas>
+        </div>
+        <div class="card">
+          <h2>Demo razlika kroz vreme</h2>
+          <canvas id="demoTrendChart" height="180"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHEMISTRY -->
+    <div class="tabpanel" id="tab-chemistry">
+      <div class="card">
+        <h2>Chemistry matrica <small>win% svake dvojke koja je igrala zajedno (2v2)</small></h2>
+        <div class="table-wrap">
+          <table id="chemTable">
+            <thead><tr><th>Dvojka</th><th class="mono">Mečeva</th><th class="mono">Pobede</th><th class="mono">Win %</th></tr></thead>
+            <tbody id="chemBody"></tbody>
+          </table>
+        </div>
+        <div class="subtle-note">Napomena: ovo ima smisla samo kad se sastav timova menja iz meča u meč (splitscreen 2v2 među vas 4).</div>
+      </div>
+    </div>
+
+    <!-- RECORDS -->
+    <div class="tabpanel" id="tab-records">
+      <div class="award-grid" id="awardGrid"></div>
+    </div>
+
+    <!-- MATCHES -->
+    <div class="tabpanel" id="tab-matches">
+      <div class="card">
+        <h2>Svi mečevi <small>klik na kolonu = sortiranje, klik na red = detalji</small></h2>
+        <div class="table-wrap">
+          <table id="matchTable">
+            <thead>
+              <tr>
+                <th data-key="date">Datum</th>
+                <th data-key="map">Mapa</th>
+                <th data-key="player">Igrač</th>
+                <th data-key="team_color">Tim</th>
+                <th data-key="win">Rezultat</th>
+                <th class="mono" data-key="core.goals">G</th>
+                <th class="mono" data-key="core.assists">A</th>
+                <th class="mono" data-key="core.saves">S</th>
+                <th class="mono" data-key="core.shots">Š</th>
+                <th class="mono" data-key="core.score">Score</th>
+                <th class="mono" data-key="boost.avg_amount">Boost</th>
+                <th class="mono" data-key="positioning.percent_behind_ball">Iza lopte %</th>
+                <th data-key="core.mvp">MVP</th>
+              </tr>
+            </thead>
+            <tbody id="matchTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modalContent"></div>
 </div>
 
 <script>
 const PALETTE = ['#3DA9FC', '#FF6B35', '#4ADE80', '#FBBF24', '#C084FC', '#F472B6'];
+
+const TREND_METRICS = [
+  {key:'core.goals', label:'Golovi'},
+  {key:'core.assists', label:'Asistencije'},
+  {key:'core.saves', label:'Odbrane'},
+  {key:'core.shots', label:'Šutevi'},
+  {key:'core.score', label:'Score'},
+  {key:'boost.avg_amount', label:'Prosečan boost'},
+  {key:'boost.bpm', label:'BPM (potrošnja)'},
+  {key:'positioning.percent_behind_ball', label:'% iza lopte'},
+  {key:'movement.avg_speed', label:'Prosečna brzina'},
+  {key:'demo.inflicted', label:'Demo-i zadati'},
+];
+
+const RADAR_METRICS = [
+  {key:'core.goals', label:'Golovi'},
+  {key:'core.assists', label:'Asistencije'},
+  {key:'core.saves', label:'Odbrane'},
+  {key:'core.shots', label:'Šutevi'},
+  {key:'boost.avg_amount', label:'Boost'},
+  {key:'positioning.percent_behind_ball', label:'Iza lopte %'},
+];
 
 let RAW = [];
 let players = [];
@@ -218,8 +394,12 @@ let playerColor = {};
 let activePlayers = new Set();
 let sortKey = 'date';
 let sortDir = -1;
+let charts = {};
 
 const $ = sel => document.querySelector(sel);
+const getPath = (obj, path) => path.split('.').reduce((o,k) => (o == null ? o : o[k]), obj);
+const avg = arr => arr.length ? arr.reduce((a,b)=>a+(b||0),0)/arr.length : 0;
+const sum = arr => arr.reduce((a,b)=>a+(b||0),0);
 
 function fmtDate(iso){
   if(!iso) return '?';
@@ -231,12 +411,11 @@ async function load(){
   try{
     const res = await fetch('./data.json');
     RAW = await res.json();
-  }catch(e){
-    RAW = [];
-  }
+  }catch(e){ RAW = []; }
 
   if(!RAW.length){
     $('#content').innerHTML = `<div class="empty">Nema podataka jos uvek.<br><b>data.json</b> je prazan ili ga fetch_stats.py jos nije generisao.<br>Pokreni GitHub Action "Update RL stats" (tab Actions &rarr; Run workflow).</div>`;
+    document.getElementById('tabbar').style.display = 'none';
     return;
   }
 
@@ -245,10 +424,12 @@ async function load(){
 
   buildChips();
   buildDateInputs();
-  render();
+  buildTrendMetricSelect();
+  buildTabs();
 
   $('#dateFrom').addEventListener('change', render);
   $('#dateTo').addEventListener('change', render);
+  $('#trendMetric').addEventListener('change', render);
   $('#resetBtn').addEventListener('click', () => {
     $('#dateFrom').value = ''; $('#dateTo').value = '';
     activePlayers = new Set(players);
@@ -260,6 +441,20 @@ async function load(){
       const key = th.dataset.key;
       if(sortKey === key) sortDir *= -1; else { sortKey = key; sortDir = 1; }
       render();
+    });
+  });
+  $('#modalBackdrop').addEventListener('click', e => { if(e.target.id === 'modalBackdrop') closeModal(); });
+
+  render();
+}
+
+function buildTabs(){
+  document.querySelectorAll('.tabbtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tabbtn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tabpanel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      $('#tab-' + btn.dataset.tab).classList.add('active');
     });
   });
 }
@@ -291,6 +486,11 @@ function buildDateInputs(){
   }
 }
 
+function buildTrendMetricSelect(){
+  const sel = $('#trendMetric');
+  sel.innerHTML = TREND_METRICS.map(m => `<option value="${m.key}">${m.label}</option>`).join('');
+}
+
 function getFiltered(){
   const from = $('#dateFrom').value;
   const to = $('#dateTo').value;
@@ -302,7 +502,7 @@ function getFiltered(){
   });
 }
 
-let trendChart, radarChart, posChart;
+function destroyChart(key){ if(charts[key]){ charts[key].destroy(); delete charts[key]; } }
 
 function render(){
   const rows = getFiltered();
@@ -310,21 +510,38 @@ function render(){
   renderTrend(rows);
   renderBoostMeters(rows);
   renderRadar(rows);
-  renderPositioning(rows);
+
+  renderBpmChart(rows);
+  renderBoostDistChart(rows);
+  renderBoostTable(rows);
+
+  renderAirChart(rows);
+  renderSpeedChart(rows);
+  renderMovementTable(rows);
+
+  renderPositioningChart(rows);
+  renderRotationTrend(rows);
+  renderPosTable(rows);
+
+  renderDemoChart(rows);
+  renderDemoTrend(rows);
+
+  renderChemistry(rows);
+  renderRecords(rows);
   renderTable(rows);
 }
 
+/* ---------------- OVERVIEW ---------------- */
+
 function renderScoreline(rows){
-  const uniqueMatches = new Map();
-  rows.forEach(r => { if(!uniqueMatches.has(r.replay_id)) uniqueMatches.set(r.replay_id, r); });
-  const matches = rows.length ? [...uniqueMatches.values()] : [];
+  const uniqueMatches = new Set(rows.map(r => r.replay_id));
   const wins = rows.filter(r => r.win).length;
   const losses = rows.filter(r => !r.win).length;
-  const goals = rows.reduce((s,r) => s + (r.goals||0), 0);
-  const mvps = rows.filter(r => r.mvp).length;
+  const goals = sum(rows.map(r => getPath(r,'core.goals')));
+  const mvps = rows.filter(r => getPath(r,'core.mvp')).length;
 
   $('#scoreline').innerHTML = `
-    <div class="score-item"><div class="num mono">${matches.length}</div><div class="lbl">Mečeva</div></div>
+    <div class="score-item"><div class="num mono">${uniqueMatches.size}</div><div class="lbl">Mečeva</div></div>
     <div class="score-item win"><div class="num mono">${wins}</div><div class="lbl">Pobeda</div></div>
     <div class="score-item loss"><div class="num mono">${losses}</div><div class="lbl">Poraza</div></div>
     <div class="score-item"><div class="num mono">${goals}</div><div class="lbl">Golova ukupno</div></div>
@@ -332,21 +549,17 @@ function renderScoreline(rows){
   `;
 }
 
-function groupByMatchAndPlayer(rows, metric){
-  // x-axis: match date (chronological), y: metric per player
+function groupByMatchAndPlayer(rows, metricKey){
   const byReplay = {};
   rows.forEach(r => {
     if(!byReplay[r.replay_id]) byReplay[r.replay_id] = { date: r.date, players: {} };
-    byReplay[r.replay_id].players[r.player] = r[metric];
+    byReplay[r.replay_id].players[r.player] = getPath(r, metricKey);
   });
-  const ordered = Object.values(byReplay).sort((a,b) => (a.date||'').localeCompare(b.date||''));
-  return ordered;
+  return Object.values(byReplay).sort((a,b) => (a.date||'').localeCompare(b.date||''));
 }
 
-function renderTrend(rows){
-  const metric = 'goals';
-  const ordered = groupByMatchAndPlayer(rows, metric);
-  const labels = ordered.map((m,i) => fmtDate(m.date));
+function lineChartFor(canvasId, chartKey, ordered, labelFn){
+  const labels = ordered.map(m => fmtDate(m.date));
   const datasets = [...activePlayers].sort().map(p => ({
     label: p,
     data: ordered.map(m => m.players[p] ?? null),
@@ -356,9 +569,8 @@ function renderTrend(rows){
     spanGaps: true,
     pointRadius: 3,
   }));
-
-  if(trendChart) trendChart.destroy();
-  trendChart = new Chart($('#trendChart'), {
+  destroyChart(chartKey);
+  charts[chartKey] = new Chart($(canvasId), {
     type: 'line',
     data: { labels, datasets },
     options: {
@@ -372,13 +584,17 @@ function renderTrend(rows){
   });
 }
 
-function avg(arr){ return arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0; }
+function renderTrend(rows){
+  const metric = $('#trendMetric').value || 'core.goals';
+  const ordered = groupByMatchAndPlayer(rows, metric);
+  lineChartFor('#trendChart', 'trend', ordered);
+}
 
 function renderBoostMeters(rows){
   const wrap = $('#boostMeters');
   wrap.innerHTML = '';
   [...activePlayers].sort().forEach(p => {
-    const vals = rows.filter(r => r.player === p).map(r => r.avg_boost || 0);
+    const vals = rows.filter(r => r.player === p).map(r => getPath(r,'boost.avg_amount') || 0);
     const value = avg(vals);
     const row = document.createElement('div');
     row.className = 'meter-row';
@@ -393,21 +609,12 @@ function renderBoostMeters(rows){
 }
 
 function renderRadar(rows){
-  const metrics = [
-    { key:'goals', label:'Golovi' },
-    { key:'assists', label:'Asistencije' },
-    { key:'saves', label:'Odbrane' },
-    { key:'shots', label:'Šutevi' },
-    { key:'avg_boost', label:'Boost' },
-    { key:'percent_behind_ball', label:'Iza lopte %' },
-  ];
   const perPlayer = {};
   [...activePlayers].forEach(p => {
     const prows = rows.filter(r => r.player === p);
-    perPlayer[p] = metrics.map(m => avg(prows.map(r => r[m.key] || 0)));
+    perPlayer[p] = RADAR_METRICS.map(m => avg(prows.map(r => getPath(r,m.key) || 0)));
   });
-  // normalize each metric 0-100 across active players
-  const maxes = metrics.map((m,i) => Math.max(1, ...Object.values(perPlayer).map(v => v[i])));
+  const maxes = RADAR_METRICS.map((m,i) => Math.max(1, ...Object.values(perPlayer).map(v => v[i])));
   const datasets = [...activePlayers].sort().map(p => ({
     label: p,
     data: perPlayer[p].map((v,i) => (v / maxes[i]) * 100),
@@ -415,58 +622,276 @@ function renderRadar(rows){
     backgroundColor: playerColor[p] + '33',
     pointBackgroundColor: playerColor[p],
   }));
-
-  if(radarChart) radarChart.destroy();
-  radarChart = new Chart($('#radarChart'), {
+  destroyChart('radar');
+  charts.radar = new Chart($('#radarChart'), {
     type: 'radar',
-    data: { labels: metrics.map(m=>m.label), datasets },
+    data: { labels: RADAR_METRICS.map(m=>m.label), datasets },
     options: {
       responsive:true,
       plugins:{ legend:{ labels:{ color:'#8A93A3' } } },
-      scales:{
-        r:{
-          angleLines:{ color:'rgba(255,255,255,0.08)' },
-          grid:{ color:'rgba(255,255,255,0.08)' },
-          pointLabels:{ color:'#E8ECF1', font:{ size:11 } },
-          ticks:{ display:false, backdropColor:'transparent' },
-          suggestedMin:0, suggestedMax:100
-        }
-      }
+      scales:{ r:{
+        angleLines:{ color:'rgba(255,255,255,0.08)' }, grid:{ color:'rgba(255,255,255,0.08)' },
+        pointLabels:{ color:'#E8ECF1', font:{ size:11 } }, ticks:{ display:false, backdropColor:'transparent' },
+        suggestedMin:0, suggestedMax:100
+      }}
     }
   });
 }
 
-function renderPositioning(rows){
-  const players_ = [...activePlayers].sort();
-  const def = players_.map(p => avg(rows.filter(r=>r.player===p).map(r=>r.percent_defensive_third||0)));
-  const off = players_.map(p => avg(rows.filter(r=>r.player===p).map(r=>r.percent_offensive_third||0)));
-  const neu = players_.map((p,i) => Math.max(0, 100 - def[i] - off[i]));
+/* ---------------- BOOST TAB ---------------- */
 
-  if(posChart) posChart.destroy();
-  posChart = new Chart($('#posChart'), {
-    type: 'bar',
-    data: {
-      labels: players_,
-      datasets: [
-        { label:'Odbrana', data:def, backgroundColor:'#3DA9FC' },
-        { label:'Neutralna zona', data:neu, backgroundColor:'#8A93A3' },
-        { label:'Napad', data:off, backgroundColor:'#FF6B35' },
-      ]
-    },
-    options: {
-      responsive:true,
-      plugins:{ legend:{ labels:{ color:'#8A93A3' } } },
-      scales:{
-        x:{ stacked:true, ticks:{ color:'#8A93A3' }, grid:{ display:false } },
-        y:{ stacked:true, ticks:{ color:'#8A93A3', callback:v=>v+'%' }, grid:{ color:'rgba(255,255,255,0.05)' }, max:100 }
-      }
-    }
+function renderBpmChart(rows){
+  const ps = [...activePlayers].sort();
+  const bpm = ps.map(p => avg(rows.filter(r=>r.player===p).map(r=>getPath(r,'boost.bpm')||0)));
+  destroyChart('bpm');
+  charts.bpm = new Chart($('#bpmChart'), {
+    type:'bar',
+    data:{ labels:ps, datasets:[{ label:'BPM', data:bpm, backgroundColor:ps.map(p=>playerColor[p]) }] },
+    options:{ responsive:true, plugins:{legend:{display:false}},
+      scales:{ x:{ticks:{color:'#8A93A3'},grid:{display:false}}, y:{ticks:{color:'#8A93A3'},grid:{color:'rgba(255,255,255,0.05)'}} } }
   });
 }
+
+function renderBoostDistChart(rows){
+  const ps = [...activePlayers].sort();
+  const buckets = ['percent_boost_0_25','percent_boost_25_50','percent_boost_50_75','percent_boost_75_100'];
+  const bucketLabels = ['0-25','25-50','50-75','75-100'];
+  const colors = ['#F87171','#FBBF24','#4ADE80','#3DA9FC'];
+  const datasets = buckets.map((b,i) => ({
+    label: bucketLabels[i]+'%',
+    data: ps.map(p => avg(rows.filter(r=>r.player===p).map(r=>getPath(r,'boost.'+b)||0))),
+    backgroundColor: colors[i],
+  }));
+  destroyChart('boostDist');
+  charts.boostDist = new Chart($('#boostDistChart'), {
+    type:'bar',
+    data:{ labels:ps, datasets },
+    options:{ responsive:true, plugins:{legend:{labels:{color:'#8A93A3'}}},
+      scales:{ x:{stacked:true,ticks:{color:'#8A93A3'},grid:{display:false}}, y:{stacked:true,max:100,ticks:{color:'#8A93A3',callback:v=>v+'%'},grid:{color:'rgba(255,255,255,0.05)'}} } }
+  });
+}
+
+function statTable(tableId, rows, players_, columns){
+  const table = $(tableId);
+  table.querySelector('thead').innerHTML = '<tr><th>Igrač</th>' + columns.map(c=>`<th class="mono">${c.label}</th>`).join('') + '</tr>';
+  table.querySelector('tbody').innerHTML = players_.map(p => {
+    const prows = rows.filter(r => r.player === p);
+    return '<tr><td style="color:'+playerColor[p]+';font-weight:600;">'+p+'</td>' +
+      columns.map(c => {
+        const v = avg(prows.map(r => getPath(r, c.key) || 0));
+        return `<td class="mono">${c.fmt ? c.fmt(v) : v.toFixed(1)}</td>`;
+      }).join('') + '</tr>';
+  }).join('');
+}
+
+function renderBoostTable(rows){
+  const ps = [...activePlayers].sort();
+  statTable('#boostTable', rows, ps, [
+    {key:'boost.bpm', label:'BPM'},
+    {key:'boost.avg_amount', label:'Prosek'},
+    {key:'boost.amount_collected', label:'Sakupljeno'},
+    {key:'boost.amount_stolen', label:'Ukradeno'},
+    {key:'boost.count_collected_big', label:'Veliki pedovi'},
+    {key:'boost.count_collected_small', label:'Mali pedovi'},
+    {key:'boost.amount_overfill', label:'Overfill'},
+    {key:'boost.percent_zero_boost', label:'% na 0', fmt:v=>v.toFixed(1)+'%'},
+    {key:'boost.percent_full_boost', label:'% na 100', fmt:v=>v.toFixed(1)+'%'},
+  ]);
+}
+
+/* ---------------- MOVEMENT TAB ---------------- */
+
+function renderAirChart(rows){
+  const ps = [...activePlayers].sort();
+  const ground = ps.map(p => avg(rows.filter(r=>r.player===p).map(r=>getPath(r,'movement.percent_ground')||0)));
+  const low = ps.map(p => avg(rows.filter(r=>r.player===p).map(r=>getPath(r,'movement.percent_low_air')||0)));
+  const high = ps.map(p => avg(rows.filter(r=>r.player===p).map(r=>getPath(r,'movement.percent_high_air')||0)));
+  destroyChart('air');
+  charts.air = new Chart($('#airChart'), {
+    type:'bar',
+    data:{ labels:ps, datasets:[
+      {label:'Zemlja', data:ground, backgroundColor:'#4ADE80'},
+      {label:'Nizak vazduh', data:low, backgroundColor:'#FBBF24'},
+      {label:'Visok vazduh', data:high, backgroundColor:'#3DA9FC'},
+    ]},
+    options:{ responsive:true, plugins:{legend:{labels:{color:'#8A93A3'}}},
+      scales:{ x:{stacked:true,ticks:{color:'#8A93A3'},grid:{display:false}}, y:{stacked:true,max:100,ticks:{color:'#8A93A3',callback:v=>v+'%'},grid:{color:'rgba(255,255,255,0.05)'}} } }
+  });
+}
+
+function renderSpeedChart(rows){
+  const ps = [...activePlayers].sort();
+  const speed = ps.map(p => avg(rows.filter(r=>r.player===p).map(r=>getPath(r,'movement.avg_speed')||0)));
+  const supersonic = ps.map(p => avg(rows.filter(r=>r.player===p).map(r=>getPath(r,'movement.percent_supersonic_speed')||0)));
+  destroyChart('speed');
+  charts.speed = new Chart($('#speedChart'), {
+    data:{ labels:ps, datasets:[
+      {type:'bar', label:'Prosečna brzina', data:speed, backgroundColor:'#3DA9FC', yAxisID:'y'},
+      {type:'line', label:'% supersonic', data:supersonic, borderColor:'#FF6B35', backgroundColor:'#FF6B35', yAxisID:'y1'},
+    ]},
+    options:{ responsive:true, plugins:{legend:{labels:{color:'#8A93A3'}}},
+      scales:{
+        x:{ticks:{color:'#8A93A3'},grid:{display:false}},
+        y:{position:'left',ticks:{color:'#8A93A3'},grid:{color:'rgba(255,255,255,0.05)'}},
+        y1:{position:'right',max:100,ticks:{color:'#8A93A3',callback:v=>v+'%'},grid:{display:false}}
+      } }
+  });
+}
+
+function renderMovementTable(rows){
+  const ps = [...activePlayers].sort();
+  statTable('#movementTable', rows, ps, [
+    {key:'movement.avg_speed', label:'Pros. brzina'},
+    {key:'movement.percent_supersonic_speed', label:'% supersonic', fmt:v=>v.toFixed(1)+'%'},
+    {key:'movement.total_distance', label:'Distanca'},
+    {key:'movement.count_powerslide', label:'Powerslide #'},
+    {key:'movement.avg_powerslide_duration', label:'Pros. trajanje', fmt:v=>v.toFixed(2)+'s'},
+  ]);
+}
+
+/* ---------------- POSITIONING TAB ---------------- */
+
+function renderPositioningChart(rows){
+  const ps = [...activePlayers].sort();
+  const def = ps.map(p => avg(rows.filter(r=>r.player===p).map(r=>getPath(r,'positioning.percent_defensive_third')||0)));
+  const off = ps.map(p => avg(rows.filter(r=>r.player===p).map(r=>getPath(r,'positioning.percent_offensive_third')||0)));
+  const neu = ps.map((p,i) => Math.max(0, 100 - def[i] - off[i]));
+  destroyChart('pos');
+  charts.pos = new Chart($('#posChart'), {
+    type:'bar',
+    data:{ labels:ps, datasets:[
+      {label:'Odbrana', data:def, backgroundColor:'#3DA9FC'},
+      {label:'Neutralna zona', data:neu, backgroundColor:'#8A93A3'},
+      {label:'Napad', data:off, backgroundColor:'#FF6B35'},
+    ]},
+    options:{ responsive:true, plugins:{legend:{labels:{color:'#8A93A3'}}},
+      scales:{ x:{stacked:true,ticks:{color:'#8A93A3'},grid:{display:false}}, y:{stacked:true,max:100,ticks:{color:'#8A93A3',callback:v=>v+'%'},grid:{color:'rgba(255,255,255,0.05)'}} } }
+  });
+}
+
+function renderRotationTrend(rows){
+  const ordered = groupByMatchAndPlayer(rows, 'positioning.percent_behind_ball');
+  lineChartFor('#rotationTrendChart', 'rotationTrend', ordered);
+}
+
+function renderPosTable(rows){
+  const ps = [...activePlayers].sort();
+  statTable('#posTable', rows, ps, [
+    {key:'positioning.percent_behind_ball', label:'% iza lopte', fmt:v=>v.toFixed(1)+'%'},
+    {key:'positioning.percent_most_back', label:'% poslednji', fmt:v=>v.toFixed(1)+'%'},
+    {key:'positioning.avg_distance_to_ball', label:'Dist. do lopte'},
+    {key:'positioning.avg_distance_to_mates', label:'Dist. do saigrača'},
+    {key:'positioning.percent_closest_to_ball', label:'% najbliži', fmt:v=>v.toFixed(1)+'%'},
+    {key:'positioning.goals_against_while_last_defender', label:'Primljeno kao zadnji'},
+  ]);
+}
+
+/* ---------------- DEMOS TAB ---------------- */
+
+function renderDemoChart(rows){
+  const ps = [...activePlayers].sort();
+  const inflicted = ps.map(p => sum(rows.filter(r=>r.player===p).map(r=>getPath(r,'demo.inflicted')||0)));
+  const taken = ps.map(p => sum(rows.filter(r=>r.player===p).map(r=>getPath(r,'demo.taken')||0)));
+  destroyChart('demo');
+  charts.demo = new Chart($('#demoChart'), {
+    type:'bar',
+    data:{ labels:ps, datasets:[
+      {label:'Zadati', data:inflicted, backgroundColor:'#4ADE80'},
+      {label:'Primljeni', data:taken, backgroundColor:'#F87171'},
+    ]},
+    options:{ responsive:true, plugins:{legend:{labels:{color:'#8A93A3'}}},
+      scales:{ x:{ticks:{color:'#8A93A3'},grid:{display:false}}, y:{ticks:{color:'#8A93A3'},grid:{color:'rgba(255,255,255,0.05)'}} } }
+  });
+}
+
+function renderDemoTrend(rows){
+  const byReplay = {};
+  rows.forEach(r => {
+    if(!byReplay[r.replay_id]) byReplay[r.replay_id] = { date: r.date, players: {} };
+    byReplay[r.replay_id].players[r.player] = (getPath(r,'demo.inflicted')||0) - (getPath(r,'demo.taken')||0);
+  });
+  const ordered = Object.values(byReplay).sort((a,b) => (a.date||'').localeCompare(b.date||''));
+  lineChartFor('#demoTrendChart', 'demoTrend', ordered);
+}
+
+/* ---------------- CHEMISTRY TAB ---------------- */
+
+function renderChemistry(rows){
+  const seen = new Set();
+  const pairs = {};
+  rows.forEach(r => {
+    const key = r.replay_id + '|' + r.team_color;
+    if(seen.has(key)) return;
+    seen.add(key);
+    if(!r.teammates || r.teammates.length !== 1) return;
+    const pairKey = [r.player, r.teammates[0]].sort().join(' & ');
+    if(!pairs[pairKey]) pairs[pairKey] = { total:0, wins:0 };
+    pairs[pairKey].total++;
+    if(r.win) pairs[pairKey].wins++;
+  });
+  const entries = Object.entries(pairs).sort((a,b) => (b[1].wins/b[1].total) - (a[1].wins/a[1].total));
+  $('#chemBody').innerHTML = entries.length ? entries.map(([pair, d]) => `
+    <tr><td>${pair}</td><td class="mono">${d.total}</td><td class="mono">${d.wins}</td>
+    <td class="mono">${((d.wins/d.total)*100).toFixed(0)}%</td></tr>
+  `).join('') : '<tr><td colspan="4" class="empty">Nema dovoljno podataka (treba 2v2 sa promenljivim sastavom)</td></tr>';
+}
+
+/* ---------------- RECORDS TAB ---------------- */
+
+function renderRecords(rows){
+  const ps = [...activePlayers];
+  if(!ps.length){ $('#awardGrid').innerHTML = '<div class="empty">Nema izabranih igrača</div>'; return; }
+
+  const byPlayer = p => rows.filter(r => r.player === p);
+  const totalGoals = p => sum(byPlayer(p).map(r=>getPath(r,'core.goals')));
+  const totalSaves = p => sum(byPlayer(p).map(r=>getPath(r,'core.saves')));
+  const totalWins = p => byPlayer(p).filter(r=>r.win).length;
+  const totalDemos = p => sum(byPlayer(p).map(r=>getPath(r,'demo.inflicted')));
+  const totalMvp = p => byPlayer(p).filter(r=>getPath(r,'core.mvp')).length;
+  const hatTricks = p => byPlayer(p).filter(r=>getPath(r,'core.goals')>=3).length;
+  const avgZeroBoost = p => { const v=byPlayer(p); return v.length ? avg(v.map(r=>getPath(r,'boost.percent_zero_boost')||0)) : 999; };
+  const bestScore = p => Math.max(0, ...byPlayer(p).map(r=>getPath(r,'core.score')||0));
+
+  function longestStreak(p){
+    const sorted = byPlayer(p).slice().sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+    let best=0, cur=0;
+    sorted.forEach(r => { if(r.win){ cur++; best=Math.max(best,cur);} else cur=0; });
+    return best;
+  }
+
+  const top = (fn, better='max') => {
+    let bestP = null, bestV = better==='max' ? -Infinity : Infinity;
+    ps.forEach(p => { const v = fn(p); if((better==='max' && v>bestV) || (better==='min' && v<bestV)){ bestV=v; bestP=p; } });
+    return { player: bestP, value: bestV };
+  };
+
+  const awards = [
+    { emoji:'🏆', title:'Najviše pobeda', ...top(totalWins), unit:'pobeda' },
+    { emoji:'🎯', title:'Najviše golova', ...top(totalGoals), unit:'golova' },
+    { emoji:'🧤', title:'Najviše odbrana', ...top(totalSaves), unit:'odbrana' },
+    { emoji:'⭐', title:'Najviše MVP nagrada', ...top(totalMvp), unit:'MVP' },
+    { emoji:'🎩', title:'Hat-trick heroj', ...top(hatTricks), unit:'hat-trickova' },
+    { emoji:'💥', title:'Demo kralj', ...top(totalDemos), unit:'demolicija' },
+    { emoji:'🔥', title:'Najduži niz pobeda', ...top(longestStreak), unit:'pobeda zaredom' },
+    { emoji:'⚡', title:'Najbolji boost menadžment', ...top(avgZeroBoost,'min'), unit:'% vremena na 0 boosta', fmt:v=>v.toFixed(1) },
+    { emoji:'💯', title:'Najbolja partija ikad (score)', ...top(bestScore), unit:'poena u jednom meču' },
+  ];
+
+  $('#awardGrid').innerHTML = awards.map(a => `
+    <div class="award-card">
+      <div class="emoji">${a.emoji}</div>
+      <div class="title">${a.title}</div>
+      <div class="winner" style="color:${a.player ? playerColor[a.player] : '#fff'}">${a.player || '—'}</div>
+      <div class="detail">${a.player ? (a.fmt ? a.fmt(a.value) : a.value) + ' ' + a.unit : 'nema podataka'}</div>
+    </div>
+  `).join('');
+}
+
+/* ---------------- MATCHES TAB ---------------- */
 
 function renderTable(rows){
   const sorted = [...rows].sort((a,b) => {
-    let va = a[sortKey], vb = b[sortKey];
+    let va = getPath(a,sortKey), vb = getPath(b,sortKey);
     if(typeof va === 'string') va = va.toLowerCase();
     if(typeof vb === 'string') vb = vb.toLowerCase();
     if(va < vb) return -1 * sortDir;
@@ -475,24 +900,58 @@ function renderTable(rows){
   });
 
   const body = $('#matchTableBody');
-  body.innerHTML = sorted.map(r => `
-    <tr>
+  body.innerHTML = sorted.map((r, idx) => `
+    <tr data-idx="${idx}">
       <td class="mono">${fmtDate(r.date)}</td>
       <td>${r.map || ''}</td>
       <td style="color:${playerColor[r.player] || '#fff'}; font-weight:600;">${r.player}</td>
       <td style="text-transform:capitalize;">${r.team_color}</td>
       <td><span class="pill ${r.win ? 'win':'loss'}">${r.team_goals}–${r.opponent_goals}</span></td>
-      <td class="mono">${r.goals}</td>
-      <td class="mono">${r.assists}</td>
-      <td class="mono">${r.saves}</td>
-      <td class="mono">${r.shots}</td>
-      <td class="mono">${r.score}</td>
-      <td class="mono">${(r.avg_boost||0).toFixed(0)}</td>
-      <td class="mono">${(r.percent_behind_ball||0).toFixed(0)}%</td>
-      <td>${r.mvp ? '<span class="mvp-star">★</span>' : ''}</td>
+      <td class="mono">${getPath(r,'core.goals')}</td>
+      <td class="mono">${getPath(r,'core.assists')}</td>
+      <td class="mono">${getPath(r,'core.saves')}</td>
+      <td class="mono">${getPath(r,'core.shots')}</td>
+      <td class="mono">${getPath(r,'core.score')}</td>
+      <td class="mono">${(getPath(r,'boost.avg_amount')||0).toFixed(0)}</td>
+      <td class="mono">${(getPath(r,'positioning.percent_behind_ball')||0).toFixed(0)}%</td>
+      <td>${getPath(r,'core.mvp') ? '<span class="mvp-star">★</span>' : ''}</td>
     </tr>
   `).join('');
+
+  body.querySelectorAll('tr').forEach(tr => {
+    tr.addEventListener('click', () => openModal(sorted[+tr.dataset.idx]));
+  });
 }
+
+function openModal(r){
+  const c = r.core, b = r.boost, m = r.movement, p = r.positioning, d = r.demo;
+  $('#modalContent').innerHTML = `
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <h3 style="color:${playerColor[r.player]}">${r.player}</h3>
+    <div class="sub">${fmtDate(r.date)} &middot; ${r.map} &middot; ${r.playlist} &middot;
+      <span class="pill ${r.win?'win':'loss'}">${r.team_goals}–${r.opponent_goals}</span></div>
+
+    <div class="stat-block"><h4>Core</h4>
+      ${['goals','assists','saves','shots','score','shooting_percentage'].map(k=>`<div class="stat-line"><span>${k}</span><span>${c[k]}</span></div>`).join('')}
+    </div>
+    <div class="stat-block"><h4>Boost</h4>
+      ${['bpm','avg_amount','amount_collected','amount_stolen','count_collected_big','count_collected_small','percent_zero_boost','percent_full_boost'].map(k=>`<div class="stat-line"><span>${k}</span><span>${b[k]}</span></div>`).join('')}
+    </div>
+    <div class="stat-block"><h4>Kretanje</h4>
+      ${['avg_speed','percent_supersonic_speed','percent_ground','percent_low_air','percent_high_air','count_powerslide'].map(k=>`<div class="stat-line"><span>${k}</span><span>${m[k]}</span></div>`).join('')}
+    </div>
+    <div class="stat-block"><h4>Pozicioniranje</h4>
+      ${['percent_defensive_third','percent_offensive_third','percent_behind_ball','avg_distance_to_ball','avg_distance_to_mates'].map(k=>`<div class="stat-line"><span>${k}</span><span>${p[k]}</span></div>`).join('')}
+    </div>
+    <div class="stat-block"><h4>Demo</h4>
+      ${['inflicted','taken'].map(k=>`<div class="stat-line"><span>${k}</span><span>${d[k]}</span></div>`).join('')}
+    </div>
+  `;
+  $('#modalCloseBtn').addEventListener('click', closeModal);
+  $('#modalBackdrop').classList.add('open');
+}
+
+function closeModal(){ $('#modalBackdrop').classList.remove('open'); }
 
 load();
 </script>
