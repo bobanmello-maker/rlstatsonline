@@ -118,6 +118,8 @@
     padding:5px 10px; border-radius:8px; font-size:12px; font-family:'Inter',sans-serif;
   }
   canvas{ max-width:100%; }
+  .radar-wrap{ max-width:460px; height:380px; margin:0 auto; }
+  .radar-wrap canvas{ max-width:100%; max-height:100%; }
 
   .meter-row{ display:flex; align-items:center; gap:12px; margin-bottom:14px; }
   .meter-row:last-child{ margin-bottom:0; }
@@ -245,7 +247,7 @@
       </div>
       <div class="card">
         <h2>Profil igrača <small>normalizovano 0–100, prosek po meču</small></h2>
-        <canvas id="radarChart" height="200"></canvas>
+        <div class="radar-wrap"><canvas id="radarChart"></canvas></div>
       </div>
     </div>
 
@@ -668,6 +670,7 @@ function renderRadar(rows){
     data: { labels: RADAR_METRICS.map(m=>m.label), datasets },
     options: {
       responsive:true,
+      maintainAspectRatio:false,
       plugins:{ legend:{ labels:{ color:'#8A93A3' } } },
       scales:{ r:{
         angleLines:{ color:'rgba(255,255,255,0.08)' }, grid:{ color:'rgba(255,255,255,0.08)' },
