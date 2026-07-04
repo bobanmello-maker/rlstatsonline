@@ -81,6 +81,19 @@
   }
   .reset-btn:hover{ color:var(--text); border-color:var(--text-muted); }
 
+  .player-records{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
+  .prec-card{
+    flex:1; min-width:150px; background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:12px 16px; border-left:3px solid var(--border);
+  }
+  .prec-card .name{ font-family:'Rajdhani',sans-serif; font-weight:700; font-size:15px; margin-bottom:6px; }
+  .prec-card .row{ display:flex; justify-content:space-between; align-items:baseline; }
+  .prec-card .wl{ font-family:'JetBrains Mono',monospace; font-size:14px; }
+  .prec-card .wl .w{ color:var(--green); }
+  .prec-card .wl .l{ color:var(--loss); }
+  .prec-card .pct{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-muted); }
+  .prec-card .matches{ font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:4px;}
+
   /* ---- Tabs ---- */
   .tabbar{ display:flex; gap:6px; margin-bottom:20px; flex-wrap:wrap; border-bottom:1px solid var(--border); padding-bottom:0;}
   .tabbtn{
@@ -199,6 +212,8 @@
     <div class="group" id="playerChips"></div>
     <button class="reset-btn" id="resetBtn">Resetuj filtere</button>
   </div>
+
+  <div class="player-records" id="playerRecords"></div>
 
   <div class="tabbar" id="tabbar">
     <button class="tabbtn active" data-tab="overview">Pregled</button>
@@ -507,6 +522,7 @@ function destroyChart(key){ if(charts[key]){ charts[key].destroy(); delete chart
 function render(){
   const rows = getFiltered();
   renderScoreline(rows);
+  renderPlayerRecords(rows);
   renderTrend(rows);
   renderBoostMeters(rows);
   renderRadar(rows);
@@ -534,19 +550,43 @@ function render(){
 /* ---------------- OVERVIEW ---------------- */
 
 function renderScoreline(rows){
+  // Namerno NE zbrajamo pobede/poraze ovde preko svih igraca - to bi
+  // dvostruko/visestruko brojalo isti mec (jedan red po igracu po mecu).
+  // Pobeda/poraz ima smisla samo PO IGRACU - to je u renderPlayerRecords().
   const uniqueMatches = new Set(rows.map(r => r.replay_id));
-  const wins = rows.filter(r => r.win).length;
-  const losses = rows.filter(r => !r.win).length;
   const goals = sum(rows.map(r => getPath(r,'core.goals')));
   const mvps = rows.filter(r => getPath(r,'core.mvp')).length;
+  const avgGoalsPerMatch = uniqueMatches.size ? (goals / uniqueMatches.size) : 0;
 
   $('#scoreline').innerHTML = `
     <div class="score-item"><div class="num mono">${uniqueMatches.size}</div><div class="lbl">Mečeva</div></div>
-    <div class="score-item win"><div class="num mono">${wins}</div><div class="lbl">Pobeda</div></div>
-    <div class="score-item loss"><div class="num mono">${losses}</div><div class="lbl">Poraza</div></div>
-    <div class="score-item"><div class="num mono">${goals}</div><div class="lbl">Golova ukupno</div></div>
+    <div class="score-item"><div class="num mono">${goals}</div><div class="lbl">Golova ukupno (svi igrači)</div></div>
+    <div class="score-item"><div class="num mono">${avgGoalsPerMatch.toFixed(1)}</div><div class="lbl">Gol. po meču/igraču</div></div>
     <div class="score-item"><div class="num mono">${mvps}</div><div class="lbl">MVP nagrada</div></div>
   `;
+}
+
+function renderPlayerRecords(rows){
+  const wrap = $('#playerRecords');
+  const ps = [...activePlayers].sort();
+  if(!ps.length){ wrap.innerHTML = ''; return; }
+
+  wrap.innerHTML = ps.map(p => {
+    const prows = rows.filter(r => r.player === p);
+    const wins = prows.filter(r => r.win).length;
+    const losses = prows.length - wins;
+    const pct = prows.length ? Math.round((wins/prows.length)*100) : 0;
+    return `
+      <div class="prec-card" style="border-left-color:${playerColor[p]}">
+        <div class="name" style="color:${playerColor[p]}">${p}</div>
+        <div class="row">
+          <span class="wl"><span class="w">${wins}P</span> – <span class="l">${losses}I</span></span>
+          <span class="pct">${pct}% win</span>
+        </div>
+        <div class="matches">${prows.length} odigranih mečeva</div>
+      </div>
+    `;
+  }).join('');
 }
 
 function groupByMatchAndPlayer(rows, metricKey){
