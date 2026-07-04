@@ -1,0 +1,38 @@
+name: Update RL stats
+
+on:
+  workflow_dispatch: {}        # dugme "Run workflow" na GitHub-u
+  schedule:
+    - cron: "0 6 * * *"        # svaki dan u 06:00 UTC (~08:00 po Beogradu)
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch latest stats
+        env:
+          BALLCHASING_TOKEN: ${{ secrets.BALLCHASING_TOKEN }}
+          BALLCHASING_GROUPS: ${{ vars.BALLCHASING_GROUPS }}
+        run: python fetch_stats.py
+
+      - name: Commit updated data.json
+        run: |
+          git config user.name "rl-stats-bot"
+          git config user.email "actions@github.com"
+          git add data.json
+          git diff --staged --quiet || git commit -m "Auto-update stats"
+          git push
