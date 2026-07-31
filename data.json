@@ -58106,9 +58106,9 @@
       "time_behind_ball": 162.16,
       "time_infront_ball": 40.34,
       "time_most_back": 35.7,
-      "time_most_forward": 69.4,
+      "time_most_forward": 69.2,
       "goals_against_while_last_defender": 0,
-      "time_closest_to_ball": 69.8,
+      "time_closest_to_ball": 69.7,
       "time_farthest_from_ball": 41.9,
       "percent_defensive_third": 60.8,
       "percent_offensive_third": 13.945679,
@@ -58118,8 +58118,8 @@
       "percent_behind_ball": 80.07901,
       "percent_infront_ball": 19.920988,
       "percent_most_back": 19.038984,
-      "percent_most_forward": 37.01136,
-      "percent_closest_to_ball": 37.224686,
+      "percent_most_forward": 36.904697,
+      "percent_closest_to_ball": 37.17135,
       "percent_farthest_from_ball": 22.345476
     },
     "demo": {
@@ -58216,7 +58216,7 @@
       "time_behind_ball": 167.21,
       "time_infront_ball": 35.29,
       "time_most_back": 82.4,
-      "time_most_forward": 41.5,
+      "time_most_forward": 41.6,
       "goals_against_while_last_defender": 1,
       "time_closest_to_ball": 53.4,
       "time_farthest_from_ball": 69.7,
@@ -58228,7 +58228,7 @@
       "percent_behind_ball": 82.57284,
       "percent_infront_ball": 17.42716,
       "percent_most_back": 43.944324,
-      "percent_most_forward": 22.132154,
+      "percent_most_forward": 22.185484,
       "percent_closest_to_ball": 28.478481,
       "percent_farthest_from_ball": 37.17135
     },
@@ -58326,9 +58326,9 @@
       "time_behind_ball": 152.08,
       "time_infront_ball": 50.43,
       "time_most_back": 71.9,
-      "time_most_forward": 69.7,
+      "time_most_forward": 69.8,
       "goals_against_while_last_defender": 0,
-      "time_closest_to_ball": 57.4,
+      "time_closest_to_ball": 57.5,
       "time_farthest_from_ball": 78,
       "percent_defensive_third": 54.192593,
       "percent_offensive_third": 11.027161,
@@ -58338,8 +58338,8 @@
       "percent_behind_ball": 75.09752,
       "percent_infront_ball": 24.902473,
       "percent_most_back": 38.344624,
-      "percent_most_forward": 37.17135,
-      "percent_closest_to_ball": 30.611702,
+      "percent_most_forward": 37.224686,
+      "percent_closest_to_ball": 30.665031,
       "percent_farthest_from_ball": 41.597782
     },
     "demo": {
@@ -58436,9 +58436,9 @@
       "time_behind_ball": 145.26,
       "time_infront_ball": 57.24,
       "time_most_back": 51.5,
-      "time_most_forward": 57.5,
+      "time_most_forward": 57.6,
       "goals_against_while_last_defender": 0,
-      "time_closest_to_ball": 66,
+      "time_closest_to_ball": 66.1,
       "time_farthest_from_ball": 51.6,
       "percent_defensive_third": 48.385185,
       "percent_offensive_third": 17.950617,
@@ -58448,8 +58448,8 @@
       "percent_behind_ball": 71.73333,
       "percent_infront_ball": 28.266666,
       "percent_most_back": 27.465202,
-      "percent_most_forward": 30.665031,
-      "percent_closest_to_ball": 35.198124,
+      "percent_most_forward": 30.718363,
+      "percent_closest_to_ball": 35.251453,
       "percent_farthest_from_ball": 27.518534
     },
     "demo": {
@@ -58546,10 +58546,10 @@
       "time_behind_ball": 148.65,
       "time_infront_ball": 50.84,
       "time_most_back": 84.2,
-      "time_most_forward": 65,
+      "time_most_forward": 64.9,
       "goals_against_while_last_defender": 2,
-      "time_closest_to_ball": 59.4,
-      "time_farthest_from_ball": 86.2,
+      "time_closest_to_ball": 59.3,
+      "time_farthest_from_ball": 86.1,
       "percent_defensive_third": 56.14598,
       "percent_offensive_third": 16.768599,
       "percent_neutral_third": 27.085423,
@@ -58558,9 +58558,9 @@
       "percent_behind_ball": 74.515015,
       "percent_infront_ball": 25.484987,
       "percent_most_back": 44.904274,
-      "percent_most_forward": 34.664818,
-      "percent_closest_to_ball": 31.678312,
-      "percent_farthest_from_ball": 45.970882
+      "percent_most_forward": 34.61149,
+      "percent_closest_to_ball": 31.62498,
+      "percent_farthest_from_ball": 45.917553
     },
     "demo": {
       "inflicted": 0,
@@ -58659,7 +58659,7 @@
       "time_most_forward": 58.1,
       "goals_against_while_last_defender": 2,
       "time_closest_to_ball": 55.2,
-      "time_farthest_from_ball": 57.8,
+      "time_farthest_from_ball": 57.9,
       "percent_defensive_third": 49.377777,
       "percent_offensive_third": 21.506172,
       "percent_neutral_third": 29.116049,
@@ -58670,7 +58670,7 @@
       "percent_most_back": 31.944963,
       "percent_most_forward": 30.985016,
       "percent_closest_to_ball": 29.43843,
-      "percent_farthest_from_ball": 30.825024
+      "percent_farthest_from_ball": 30.878353
     },
     "demo": {
       "inflicted": 0,
@@ -91219,7 +91219,7 @@
       "time_most_forward": 112.7,
       "goals_against_while_last_defender": 0,
       "time_closest_to_ball": 91.1,
-      "time_farthest_from_ball": 73.2,
+      "time_farthest_from_ball": 73.3,
       "percent_defensive_third": 47.110313,
       "percent_offensive_third": 30.627953,
       "percent_neutral_third": 22.261732,
@@ -91230,7 +91230,7 @@
       "percent_most_back": 22.073797,
       "percent_most_forward": 45.898838,
       "percent_closest_to_ball": 37.1019,
-      "percent_farthest_from_ball": 29.811842
+      "percent_farthest_from_ball": 29.852573
     },
     "demo": {
       "inflicted": 0,
@@ -91329,7 +91329,7 @@
       "time_most_forward": 54.2,
       "goals_against_while_last_defender": 2,
       "time_closest_to_ball": 83.3,
-      "time_farthest_from_ball": 62.3,
+      "time_farthest_from_ball": 62.2,
       "percent_defensive_third": 51.63026,
       "percent_offensive_third": 24.489315,
       "percent_neutral_third": 23.88042,
@@ -91340,7 +91340,7 @@
       "percent_most_back": 34.658306,
       "percent_most_forward": 22.073797,
       "percent_closest_to_ball": 33.92523,
-      "percent_farthest_from_ball": 25.372648
+      "percent_farthest_from_ball": 25.331923
     },
     "demo": {
       "inflicted": 0,
@@ -91435,11 +91435,11 @@
       "time_offensive_half": 70.71,
       "time_behind_ball": 195.07,
       "time_infront_ball": 62.51,
-      "time_most_back": 103.8,
+      "time_most_back": 104,
       "time_most_forward": 65.5,
       "goals_against_while_last_defender": 0,
       "time_closest_to_ball": 64.9,
-      "time_farthest_from_ball": 107.5,
+      "time_farthest_from_ball": 107.6,
       "percent_defensive_third": 59.182323,
       "percent_offensive_third": 14.536418,
       "percent_neutral_third": 26.281256,
@@ -91447,10 +91447,10 @@
       "percent_offensive_half": 27.45273,
       "percent_behind_ball": 75.731804,
       "percent_infront_ball": 24.268187,
-      "percent_most_back": 42.274174,
+      "percent_most_back": 42.355625,
       "percent_most_forward": 26.6759,
       "percent_closest_to_ball": 26.43154,
-      "percent_farthest_from_ball": 43.781055
+      "percent_farthest_from_ball": 43.82178
     },
     "demo": {
       "inflicted": 0,
@@ -91655,11 +91655,11 @@
       "time_offensive_half": 103.33,
       "time_behind_ball": 183.34,
       "time_infront_ball": 74.23,
-      "time_most_back": 73.8,
+      "time_most_back": 73.6,
       "time_most_forward": 73.6,
       "goals_against_while_last_defender": 0,
       "time_closest_to_ball": 107.6,
-      "time_farthest_from_ball": 55.5,
+      "time_farthest_from_ball": 55.4,
       "percent_defensive_third": 46.96199,
       "percent_offensive_third": 23.943005,
       "percent_neutral_third": 29.095003,
@@ -91667,10 +91667,10 @@
       "percent_offensive_half": 40.11725,
       "percent_behind_ball": 71.18065,
       "percent_infront_ball": 28.819351,
-      "percent_most_back": 30.056206,
+      "percent_most_back": 29.97475,
       "percent_most_forward": 29.97475,
       "percent_closest_to_ball": 43.82178,
-      "percent_farthest_from_ball": 22.603243
+      "percent_farthest_from_ball": 22.562515
     },
     "demo": {
       "inflicted": 0,
